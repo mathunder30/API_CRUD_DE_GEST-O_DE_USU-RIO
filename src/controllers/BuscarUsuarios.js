@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.buscandoTodosUsuarios = void 0;
 const Usuario_1 = __importDefault(require("../models/Usuario"));
+// aqui a função chama o metodo buscandoTodosUsuarios do Usuarios e retorna a lista de usuarios
 const buscandoTodosUsuarios = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const Usuario = yield Usuario_1.default.buscandoTodosUsuarios();
