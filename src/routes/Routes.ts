@@ -3,7 +3,7 @@ import { criandoUsario, buscandoTodosUsuarios, buscandoUsuarioId, atualizarUsuar
 
 const router = Express.Router();
 
-router.post('/', criandoUsario); // Rota de criação de usuario
+router.post('/api/usuarios', criandoUsario); // Rota de criação de usuario
 router.get('/', buscandoTodosUsuarios); // Rota de listar todos os usuarios 
 router.get('/:id', buscandoUsuarioId); //rota para buscando usuarios por ID
 router.put('/:id', atualizarUsuario); // rota para Atualizar usuarios
