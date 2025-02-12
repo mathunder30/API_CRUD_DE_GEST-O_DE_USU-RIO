@@ -23,7 +23,7 @@ export default class Usuarios {
             [usuario.nome, usuario.email, usuario.senha]
             //o promisePool Executa a query SQL de forma assíncrona
 
-        );
+        ); console.log('Usuário inserido:', rows);
         //caso aconteça algum erro, pode ter a ver com esse return
         return { ...usuario, id:(rows as msql2.ResultSetHeader).insertId }
     }

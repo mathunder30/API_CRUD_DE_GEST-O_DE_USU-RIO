@@ -5,6 +5,7 @@ import Usuarios from "../models/Usuario";
 // ela chama o método criarUsuario da classe Usuarios do arquivo Usuario.ts.
 export const criandoUsario = async(req: Request, res: Response) => {
     const {nome, email, senha} = req.body;
+    console.log('Dados recebidos:', { nome, email, senha });
 
     try{
 
