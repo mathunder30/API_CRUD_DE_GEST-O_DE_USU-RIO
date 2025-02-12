@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import Usuarios from "../models/Usuario";
-
+// ESSA FUNÇÃO UTILIZA O METODO QUE EXCLUI O USUARIO COM BASE NO ID
 export const deletarUsuario = async (req: Request, res: Response) => {
     const {id} = req.params;
 
