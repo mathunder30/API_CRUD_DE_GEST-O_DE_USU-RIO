@@ -2,10 +2,12 @@ import express, {Request, Response, Router} from 'express';
 import { configDotenv, DotenvConfigOptions } from 'dotenv';
 import router from './routes/Routes';
 import { promisePool } from './DB';
+import cors from 'cors';
 const app = express();
 const port = 3000
 
 app.use(express.json());
+app.use(cors());
 
 promisePool.getConnection()
 .then(() => console.log('Conectado ao MySQL'))
