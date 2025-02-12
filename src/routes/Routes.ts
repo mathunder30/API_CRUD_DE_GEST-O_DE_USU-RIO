@@ -1,9 +1,5 @@
 import Express from "express";
-import { deletarUsuario } from "../controllers/DeletarUsuario";
-import { criandoUsario } from "../controllers/CriarController";
-import { buscandoTodosUsuarios } from "../controllers/BuscarUsuarios";
-import { buscandoUsuarioId } from "../controllers/BuscarID";
-import { atualizarUsuario } from "../controllers/AtualizarUsuario";
+import { criandoUsario, buscandoTodosUsuarios, buscandoUsuarioId, atualizarUsuario,deletarUsuario } from "../controllers/UsuarioController";
 
 const router = Express.Router();
 
