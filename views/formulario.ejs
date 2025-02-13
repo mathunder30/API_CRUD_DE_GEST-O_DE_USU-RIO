@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+  <h1>Formulário de Usuário</h1>
+
+  <!-- Formulário para criar ou atualizar um usuário -->
+  <form action="/api/usuarios/criar" method="POST">
+      <input type="text" name="nome" placeholder="Nome" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="senha" placeholder="Senha" required>
+      <button type="submit">Salvar Usuário</button>
+  </form>
+
+  <!-- Botões para os métodos de atualizar, deletar e buscar -->
+  <div>
+      <form action="/api/usuarios/buscar" method="GET">
+          <input type="text" name="id" placeholder="ID do usuário" required>
+          <button type="submit">Buscar Usuário</button>
+      </form>
+      
+      <form action="/api/usuarios/atualizar" method="POST">
+          <input type="text" name="id" placeholder="ID do usuário" required>
+          <input type="text" name="nome" placeholder="Novo nome" required>
+          <input type="email" name="email" placeholder="Novo email" required>
+          <button type="submit">Atualizar Usuário</button>
+      </form>
+      
+      <form action="/api/usuarios/deletar" method="POST">
+          <input type="text" name="id" placeholder="ID do usuário" required>
+          <button type="submit">Deletar Usuário</button>
+      </form>
+  </div>
+</body>
+</html>

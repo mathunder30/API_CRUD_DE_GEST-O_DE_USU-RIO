@@ -10,10 +10,10 @@ export const criandoUsario = async(req: Request, res: Response) => {
     try{
 
         const NovoUsuario = await Usuarios.criandoUsuario({nome, email, senha});
-        res.status(201).json(NovoUsuario); // Ela retorna o usuario criado no corpo da resposta
+        res.status(201).json({ message: 'Usuario criado com sucesso!', usuario: NovoUsuario}); // Ela retorna o usuario criado no corpo da resposta
 
-    } catch (erro){
-        res.status(500).json({message: 'Erro ao criar usuario', erro});
+    } catch (error){
+        res.status(500).json({message: 'Erro ao criar usuario', error});
 
     }
 
@@ -25,15 +25,15 @@ export const buscandoTodosUsuarios = async (req: Request, res: Response) => {
     try{
         const Usuario = await Usuarios.buscandoTodosUsuarios();
         res.json(Usuario);
-    } catch (erro) {
-        res.status(500).json({ message: 'Erro ao buscar usuario', erro});
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao buscar usuario', error});
     }
 };
 
 //Recebe o id do usuário através dos parâmetros da URL (req.params), busca o usuário com esse id e o retorna. 
 //Se não encontrar, retorna um erro 404.
 export const buscandoUsuarioId = async (req: Request, res: Response) => {
-    const{ id } = req.params;
+    const{ id } = req.query;
 
     try{
         const usuario = await Usuarios.buscandoUsuarioId(Number(id));
@@ -42,8 +42,8 @@ export const buscandoUsuarioId = async (req: Request, res: Response) => {
         } else {
             res.status(404).json({ message: 'Usuário não encontrado'});
         }
-    } catch (erro){
-        res.status(500).json({ message: 'Erro ao buscar usuario', erro})
+    } catch (error){
+        res.status(500).json({ message: 'Erro ao buscar usuario', error})
     }
 };
 
@@ -55,19 +55,19 @@ export const atualizarUsuario = async (req: Request, res: Response) => {
     try {
         await Usuarios.atualizarUsuario(Number(id), {nome, email, senha});
         res.status(200).json({ message: 'Usuário atualizado com sucesso'})
-    } catch(erro){
-        res.status(500).json({ message: 'Erro ao atualizar usuario', erro})
+    } catch(error){
+        res.status(500).json({ message: 'Erro ao atualizar usuario', error})
     }
 };
 
 // ESSA FUNÇÃO UTILIZA O METODO QUE EXCLUI O USUARIO COM BASE NO ID
 export const deletarUsuario = async (req: Request, res: Response) => {
-    const {id} = req.params;
+    const {id} = req.body;
 
     try {
-        await Usuarios.deletarUsuario(Number(id));
+         await Usuarios.deletarUsuario(Number(id));
         res.status(200).json({ message: 'Usuario excluido com sucesso'});
-    } catch (erro) {
-        res.status(500).json({ message: 'Erro ao excluir usuario', erro})
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao excluir usuario', error})
     }
 }

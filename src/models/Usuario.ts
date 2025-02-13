@@ -19,7 +19,7 @@ export default class Usuarios {
     // o usuário com o id gerado automaticamente (insertId).
     static async criandoUsuario(usuario: IUser): Promise<IUser>{
         const [rows] = await promisePool.execute(
-            'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
+            'INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)',
             [usuario.nome, usuario.email, usuario.senha]
             //o promisePool Executa a query SQL de forma assíncrona
 
@@ -31,14 +31,14 @@ export default class Usuarios {
     static async buscandoTodosUsuarios(): Promise<IUser[]>{
         // nesse retorna todos os usuários da tabela users.
         // Ele executa a query SELECT * FROM users, que retorna todas as linhas da tabela.
-        const [rows] = await promisePool.execute('SELECT * FROM usuario');
+        const [rows] = await promisePool.execute('SELECT * FROM usuarios');
         return rows as IUser[]; //A resposta é um array de usuários, que é retornado após o cast para IUser[]
     }
 
     static async buscandoUsuarioId(id: number): Promise<IUser | null> {
         // Busca um usuário pelo id. A query SQL filtra o usuário usando o id passado como parâmetro.
         // Se o usuário for encontrado, ele é retornado; caso contrário, retorna null.
-        const [rows] = await promisePool.execute('SELECT * FROM usuario WHERE id = ?', [id]);
+        const [rows] = await promisePool.execute('SELECT * FROM usuarios WHERE id = ?', [id]);
         const usuario = (rows as IUser[])[0];
         return usuario || null;
     }
@@ -47,7 +47,7 @@ export default class Usuarios {
         // Esse metodo estatico atualiza as informações de um usuário específico com base no seu id.
         //  Ele recebe os novos dados de name, email, e password e os atualiza na tabela users.
 
-        await promisePool.execute('UPTADE usuario SET name = ?, email = ?, password = ? WHERE id = ?', [
+        await promisePool.execute('UPDADE usuarios SET nome = ?, email = ?, senha = ? WHERE id = ?', [
             usuario.nome,
             usuario.email,
             usuario.senha,

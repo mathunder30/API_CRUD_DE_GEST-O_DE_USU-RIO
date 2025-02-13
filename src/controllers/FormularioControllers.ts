@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 
-export const paginaPrincipal = async(res: Response, req: Request) => {
-    res.render('index')
-}
+export const paginaFormulario = (req: Request, res: Response) => {
+    console.log("Rota /formulario acessada!");
+    res.render('formulario'); 
+};
