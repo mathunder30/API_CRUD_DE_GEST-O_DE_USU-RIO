@@ -3,8 +3,12 @@ import { configDotenv, DotenvConfigOptions } from 'dotenv';
 import router from './routes/Routes';
 import { promisePool } from './DB';
 import cors from 'cors';
+const path = require('path');
 const app = express();
 const port = 5000;
+
+app.set('views', path(__dirname,'src', 'views'));
+app.set('view engine', 'ejs')
 
 app.use(express.json());
 app.use(cors());
