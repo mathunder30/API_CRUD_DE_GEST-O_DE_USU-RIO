@@ -6,7 +6,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 const path = require('path');
 const app = express();
-const port = 5000;
+const port = 3000;
 
 //para dados de formulario em formato (POST)
 app.use(bodyParser.urlencoded({extended: true})); 
@@ -16,6 +16,8 @@ app.set('view engine', 'ejs')
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static('public'));
+
 
 promisePool.getConnection()
 .then(() => console.log('Conectado ao MySQL'))
@@ -28,7 +30,7 @@ app.use('/api/usuarios', router);
 // Rota para o formulário
 app.get('/formulario', (req: Request, res: Response) => {
     console.log('Acessando a rota do formulário');
-    res.render('formulario');  // Renderiza o 
+    res.render('formulario'); 
   });
   
 

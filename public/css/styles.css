@@ -1,0 +1,96 @@
+/* Resetando margens e preenchimento padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Corpo da página */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Título */
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para os formulários */
+  .form, .search-form, .update-form, .delete-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+  
+  /* Inputs do formulário */
+  input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border 0.3s;
+  }
+  
+  input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #febc02;
+    outline: none;
+  }
+  
+  /* Botões de ação */
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+  
+  button[type="submit"] {
+    background-color: #febc02;
+    color: white;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #e89c02;
+  }
+  
+  /* Botão de Deletar */
+  button.btn-danger {
+    background-color: #e74c3c;
+  }
+  
+  button.btn-danger:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Formulários dentro do div .form-actions */
+  .form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Estilo geral para botões */
+  button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
