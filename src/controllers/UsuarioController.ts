@@ -49,7 +49,7 @@ export const buscandoUsuarioId = async (req: Request, res: Response) => {
 
 //atualiza o usuário com base no id passado nos parâmetros da URL e nos dados fornecidos no corpo da requisição.
 export const atualizarUsuario = async (req: Request, res: Response) => {
-    const {id} = req.params;
+    const {id} = req.query;
     const { nome, email, senha} = req.body;
 
     try {
